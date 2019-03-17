@@ -12,7 +12,7 @@
 
 <meta name="author" content="Subhabrata Patra" />
 
-<meta name="date" content="2019-03-14" />
+<meta name="date" content="2019-03-18" />
 
 <title>QAIG: Automatic Item Generator for Quantitative Multiple-Choice Items</title>
 
@@ -92,7 +92,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">QAIG: Automatic Item Generator for Quantitative Multiple-Choice Items</h1>
 <h4 class="author"><em>Subhabrata Patra</em></h4>
-<h4 class="date"><em>2019-03-14</em></h4>
+<h4 class="date"><em>2019-03-18</em></h4>
 
 
 
@@ -114,7 +114,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The usage of this function is illustrated here.</p>
 <div id="formation-of-the-parent-item." class="section level3">
 <h3>1: Formation of the parent item.</h3>
-<p><strong>For <code>stem_text</code>:</strong> User of this package should construct a parent item model i.e. a <em>stem text</em> along with desired number of <em>response choices</em>. All the changeable elements (variables) in the stem should be replaced by specific notations enclosed by <code>[]</code>. Character variable should be written as <code>[C1], [C2], [C3] … etc.</code>. Number variables should be written as <code>[N1], [N2], [N3] … etc.</code>.</p>
+<p><strong>For <code>stem_text</code>:</strong> User of this package should construct a parent item model i.e. a <em>stem text</em> along with desired number of <em>response choices</em>. All the changeable elements (variables) in the stem of an item should be replaced by specific notations enclosed by <code>[]</code>. Character variable should be written as <code>[C1], [C2], [C3] … etc.</code>. Number variables should be written as <code>[N1], [N2], [N3] … etc.</code>.</p>
 <p><strong>For <code>N</code> and <code>C</code>:</strong> For each of the number variables (<code>[N1], [N2], [N3], …</code>) in the <em>stem text</em>, user has to decide a set of numbers that should be declared as vectors <code>n1, n2, n3, …</code> respectively. Vectors of characters <code>c1, c2, c3, …</code> for each character variable should also be declared similar way. All the <em>input number vectors</em> and <em>input character vectors</em> should be wrapped within <code>list</code> separately as the inputs for <code>N</code> and <code>C</code> in <code>itemgen()</code> function.</p>
 <p><strong>For <code>formulae</code>:</strong> A generic <em>formula</em> for each of the response choices should be provided using the names (<code>n1, n2, n3, …</code>) of <em>input number vectors</em>. All the <em>formulae</em> need to be written in new line separately and should be wrapped as a raw text as an input for <code>formulae</code> in <code>itemgen()</code> function. The correct response choice should be marked by “~” and distractors should be marked by “?” in the <em>formulae</em>.</p>
 <p><strong>Note:</strong> User must have <em>stem text</em>, <em>formulae</em> and the <code>list</code> of <em>input number vector(s)</em> to work with <code>itemgen()</code> function, as <code>stem_text</code>, <code>formulae</code> and <code>N</code> are the three default arguments in this function.</p>
@@ -178,7 +178,7 @@ newitems
 </div>
 <div id="using-options_affix-argument." class="section level3">
 <h3>2: Using <code>options_affix</code> argument.</h3>
-<p>Suffix or prefix or both can be attached with the numeric values in the response choices by using <code>options_affix</code> argument of <code>itemgen()</code> function. Response choice names in <code>formulae</code> and in <code>options_affix</code> must be same. If user wants to declare difficulty level of the item, that should be added within <code>options_affix</code>.</p>
+<p>Suffix or prefix or both can be attached with the numeric values in the response choices by using <code>options_affix</code> argument of <code>itemgen()</code> function. Response choice names in <code>formulae</code> and in <code>options_affix</code> must be same. If user wants to declare difficulty level of the item, that also can be added within <code>options_affix</code>.</p>
 </div>
 <div id="example-ii" class="section level3">
 <h3>Example II</h3>
