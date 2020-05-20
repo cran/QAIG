@@ -1,4 +1,4 @@
-#' Automatic Item Generator for Quantitative Multiple-Choice Items
+#' Automatic item generator from a parent item model.
 #'
 #' @aliases itemgen
 #'
@@ -43,25 +43,29 @@
 #' @importFrom utils write.csv
 #'
 #' @references
-#' Mark J. Gierl, Hollis Lai (2011). The Role of Item Models in Automatic Item Generation.
-#' \url{https://www.researchgate.net/publication/239794821_The_Role_of_Item_Models_in_Automatic_Item_Generation}
+#' Gierl, M. J., Lai, H. (2011). The Role of Item Models in Automatic Item Generation.
 #'
 #' @references
-#' Susan E. Embretson,  Neal M. Kingston (2018). Automatic Item Generation: A More Efficient Process
+#' Embretson, S. E.,  Kingston, N. M. (2018). Automatic Item Generation: A More Efficient Process
 #' for Developing Mathematics Achievement Items?
-#' \url{https://onlinelibrary.wiley.com/doi/epdf/10.1111/jedm.12166}
+#'
 #'
 #' @examples
 #' stem_text <- "The sum value of all the odd [C1] between [N1] and [N2] is"
+#'
 #' n1 <- c(20, 24, 28, 32)
 #' n2 <- c(48, 52, 56)
+#'
 #' c1 <- c("natural numbers", "integers")
+#'
 #' N <- list(n1 = n1, n2 = n2)
 #' C <- list(c1 = c1)
-#' formulae <- "Option_A ? sum((n1+1) : (n2-1))/2\n
-#' Option_B ~ (length(seq(n1+1, n2-1, by = 2)))*(n1+n2)/2\n
-#' Option_C ? sum(n1 : n2)/2\n
-#' Option_D ? (length(seq(n1, n2, by = 2)))*(n1+n2)/2\n"
+#'
+#' formulae <- "Option_A ? sum((n1+1) : (n2-1))/2
+#' Option_B ~ (length(seq(n1+1, n2-1, by = 2)))*(n1+n2)/2
+#' Option_C ? sum(n1 : n2)/2
+#' Option_D ? (length(seq(n1, n2, by = 2)))*(n1+n2)/2
+#' "
 #'
 #' options_affix <- list(Option_A = c("", ""), Option_B = c("", ""), Option_C = c("", ""),
 #' Option_D = c("", ""), Difficulty = "MEDIUM")

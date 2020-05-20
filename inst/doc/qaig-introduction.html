@@ -10,9 +10,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="author" content="Subhabrata Patra" />
+<meta name="author" content="Subhabrata" />
 
-<meta name="date" content="2019-03-18" />
+<meta name="date" content="2020-05-19" />
 
 <title>QAIG: Automatic Item Generator for Quantitative Multiple-Choice Items</title>
 
@@ -20,41 +20,67 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 
 </style>
 <script>
@@ -81,7 +107,192 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
 
 </head>
 
@@ -91,13 +302,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">QAIG: Automatic Item Generator for Quantitative Multiple-Choice Items</h1>
-<h4 class="author"><em>Subhabrata Patra</em></h4>
-<h4 class="date"><em>2019-03-18</em></h4>
+<h4 class="author">Subhabrata</h4>
+<h4 class="date">2020-05-19</h4>
 
 
 
 <p>Automatic item generation (AIG) is an old concept which was first introduced by John R. Bormuth (1969). This process has not been advanced that much in past few decades. Due to recent demand of test items and high costs in item development, this process has become in light of many educators and psychometricians again.</p>
-<p><strong>QAIG</strong> is an effort to provide tool for generating bunch of dissimilar sibling items from a <strong>Quantitative Multiple-Choice</strong> type parent item. When we think about generation of sibling items from a parent item, main focus becomes to have:</p>
+<p><strong>QAIG</strong> is an effort to provide tool by means of R function for generating group of dissimilar sibling items from <strong>Quantitative Multiple-Choice</strong> type parent item model. When we think about generating sibling items from a parent item, main focus becomes to have:</p>
 <ul>
 <li>generated items that look dissimilar to each other as much as possible.</li>
 <li>effective distractors in each of the items.</li>
@@ -121,60 +332,60 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="example-i" class="section level3">
 <h3>Example I</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(QAIG)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stem_text &lt;-<span class="st"> &quot;What is the sum of first [N1] [C1] ?&quot;</span>
-
-n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">17</span>)
-c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;natural numbers&quot;</span>, <span class="st">&quot;non-zero positive integers&quot;</span>)
-
-N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1)
-C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1)
-
-formulae &lt;-<span class="st"> &quot;Option_A ? 2*n1-1</span>
-<span class="st">Option_B ? 3*n1-2</span>
-<span class="st">Option_C ~ n1*(n1+1)/2</span>
-<span class="st">Option_D ? n1*(n1-1)/2</span>
-<span class="st">&quot;</span>
-
-## itemgen() function can be used as:
-newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">N =</span> N, <span class="dt">C =</span> C)
-
-newitems
-<span class="co">#&gt;            [Q1]                                          </span>
-<span class="co">#&gt; Stem       &quot;What is the sum of first 5 natural numbers ?&quot;</span>
-<span class="co">#&gt; Option_A   &quot; 9&quot;                                          </span>
-<span class="co">#&gt; Option_B   &quot;13&quot;                                          </span>
-<span class="co">#&gt; Option_C   &quot; 15&quot;                                         </span>
-<span class="co">#&gt; Option_D   &quot; 10&quot;                                         </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                    </span>
-<span class="co">#&gt;            [Q2]                                                     </span>
-<span class="co">#&gt; Stem       &quot;What is the sum of first 8 non-zero positive integers ?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;15&quot;                                                     </span>
-<span class="co">#&gt; Option_B   &quot;22&quot;                                                     </span>
-<span class="co">#&gt; Option_C   &quot; 36&quot;                                                    </span>
-<span class="co">#&gt; Option_D   &quot; 28&quot;                                                    </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                               </span>
-<span class="co">#&gt;            [Q3]                                           </span>
-<span class="co">#&gt; Stem       &quot;What is the sum of first 11 natural numbers ?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;21&quot;                                           </span>
-<span class="co">#&gt; Option_B   &quot;31&quot;                                           </span>
-<span class="co">#&gt; Option_C   &quot; 66&quot;                                          </span>
-<span class="co">#&gt; Option_D   &quot; 55&quot;                                          </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                     </span>
-<span class="co">#&gt;            [Q4]                                                      </span>
-<span class="co">#&gt; Stem       &quot;What is the sum of first 14 non-zero positive integers ?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;27&quot;                                                      </span>
-<span class="co">#&gt; Option_B   &quot;40&quot;                                                      </span>
-<span class="co">#&gt; Option_C   &quot;105&quot;                                                     </span>
-<span class="co">#&gt; Option_D   &quot; 91&quot;                                                     </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                                </span>
-<span class="co">#&gt;            [Q5]                                           </span>
-<span class="co">#&gt; Stem       &quot;What is the sum of first 17 natural numbers ?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;33&quot;                                           </span>
-<span class="co">#&gt; Option_B   &quot;49&quot;                                           </span>
-<span class="co">#&gt; Option_C   &quot;153&quot;                                          </span>
-<span class="co">#&gt; Option_D   &quot;136&quot;                                          </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(QAIG)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">stem_text &lt;-<span class="st"> &quot;What is the sum of first [N1] [C1] ?&quot;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3">n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">17</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4">c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;natural numbers&quot;</span>, <span class="st">&quot;non-zero positive integers&quot;</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1)</a>
+<a class="sourceLine" id="cb2-7" title="7">C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1)</a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9">formulae &lt;-<span class="st"> &quot;Option_A ? 2*n1-1</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="st">Option_B ? 3*n1-2</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="st">Option_C ~ n1*(n1+1)/2</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="st">Option_D ? n1*(n1-1)/2</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb2-14" title="14"></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="co">## itemgen() function can be used as:</span></a>
+<a class="sourceLine" id="cb2-16" title="16">newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">N =</span> N, <span class="dt">C =</span> C)</a>
+<a class="sourceLine" id="cb2-17" title="17"></a>
+<a class="sourceLine" id="cb2-18" title="18">newitems</a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="co">#&gt;            [Q1]                                          </span></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="co">#&gt; Stem       &quot;What is the sum of first 5 natural numbers ?&quot;</span></a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="co">#&gt; Option_A   &quot; 9&quot;                                          </span></a>
+<a class="sourceLine" id="cb2-22" title="22"><span class="co">#&gt; Option_B   &quot;13&quot;                                          </span></a>
+<a class="sourceLine" id="cb2-23" title="23"><span class="co">#&gt; Option_C   &quot; 15&quot;                                         </span></a>
+<a class="sourceLine" id="cb2-24" title="24"><span class="co">#&gt; Option_D   &quot; 10&quot;                                         </span></a>
+<a class="sourceLine" id="cb2-25" title="25"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                    </span></a>
+<a class="sourceLine" id="cb2-26" title="26"><span class="co">#&gt;            [Q2]                                                     </span></a>
+<a class="sourceLine" id="cb2-27" title="27"><span class="co">#&gt; Stem       &quot;What is the sum of first 8 non-zero positive integers ?&quot;</span></a>
+<a class="sourceLine" id="cb2-28" title="28"><span class="co">#&gt; Option_A   &quot;15&quot;                                                     </span></a>
+<a class="sourceLine" id="cb2-29" title="29"><span class="co">#&gt; Option_B   &quot;22&quot;                                                     </span></a>
+<a class="sourceLine" id="cb2-30" title="30"><span class="co">#&gt; Option_C   &quot; 36&quot;                                                    </span></a>
+<a class="sourceLine" id="cb2-31" title="31"><span class="co">#&gt; Option_D   &quot; 28&quot;                                                    </span></a>
+<a class="sourceLine" id="cb2-32" title="32"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                               </span></a>
+<a class="sourceLine" id="cb2-33" title="33"><span class="co">#&gt;            [Q3]                                           </span></a>
+<a class="sourceLine" id="cb2-34" title="34"><span class="co">#&gt; Stem       &quot;What is the sum of first 11 natural numbers ?&quot;</span></a>
+<a class="sourceLine" id="cb2-35" title="35"><span class="co">#&gt; Option_A   &quot;21&quot;                                           </span></a>
+<a class="sourceLine" id="cb2-36" title="36"><span class="co">#&gt; Option_B   &quot;31&quot;                                           </span></a>
+<a class="sourceLine" id="cb2-37" title="37"><span class="co">#&gt; Option_C   &quot; 66&quot;                                          </span></a>
+<a class="sourceLine" id="cb2-38" title="38"><span class="co">#&gt; Option_D   &quot; 55&quot;                                          </span></a>
+<a class="sourceLine" id="cb2-39" title="39"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                     </span></a>
+<a class="sourceLine" id="cb2-40" title="40"><span class="co">#&gt;            [Q4]                                                      </span></a>
+<a class="sourceLine" id="cb2-41" title="41"><span class="co">#&gt; Stem       &quot;What is the sum of first 14 non-zero positive integers ?&quot;</span></a>
+<a class="sourceLine" id="cb2-42" title="42"><span class="co">#&gt; Option_A   &quot;27&quot;                                                      </span></a>
+<a class="sourceLine" id="cb2-43" title="43"><span class="co">#&gt; Option_B   &quot;40&quot;                                                      </span></a>
+<a class="sourceLine" id="cb2-44" title="44"><span class="co">#&gt; Option_C   &quot;105&quot;                                                     </span></a>
+<a class="sourceLine" id="cb2-45" title="45"><span class="co">#&gt; Option_D   &quot; 91&quot;                                                     </span></a>
+<a class="sourceLine" id="cb2-46" title="46"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                                </span></a>
+<a class="sourceLine" id="cb2-47" title="47"><span class="co">#&gt;            [Q5]                                           </span></a>
+<a class="sourceLine" id="cb2-48" title="48"><span class="co">#&gt; Stem       &quot;What is the sum of first 17 natural numbers ?&quot;</span></a>
+<a class="sourceLine" id="cb2-49" title="49"><span class="co">#&gt; Option_A   &quot;33&quot;                                           </span></a>
+<a class="sourceLine" id="cb2-50" title="50"><span class="co">#&gt; Option_B   &quot;49&quot;                                           </span></a>
+<a class="sourceLine" id="cb2-51" title="51"><span class="co">#&gt; Option_C   &quot;153&quot;                                          </span></a>
+<a class="sourceLine" id="cb2-52" title="52"><span class="co">#&gt; Option_D   &quot;136&quot;                                          </span></a>
+<a class="sourceLine" id="cb2-53" title="53"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;</span></a></code></pre></div>
 </div>
 <div id="using-options_affix-argument." class="section level3">
 <h3>2: Using <code>options_affix</code> argument.</h3>
@@ -182,132 +393,132 @@ newitems
 </div>
 <div id="example-ii" class="section level3">
 <h3>Example II</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(QAIG)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stem_text &lt;-<span class="st"> &quot;[C1] has $ [N1] and [C2] has $ [N2] . If [C2] takes $ [N3] from [C1] later, then how much more amount than [C1] does [C3] have now?&quot;</span>
-
-c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'Sam'</span>, <span class="st">'Sean'</span>)
-c2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'Max'</span>, <span class="st">'Martha'</span>, <span class="st">'Mandy'</span>)
-c3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'he'</span>, <span class="st">'she'</span>, <span class="st">'she'</span>)
-
-n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)
-n2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)
-n3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)
-
-C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1, <span class="dt">c2 =</span> c2, <span class="dt">c3 =</span> c3)
-N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1, <span class="dt">n2 =</span> n2, <span class="dt">n3 =</span> n3)
-
-formulae &lt;-<span class="st"> &quot;Option_A ? (n1 + n2)</span>
-<span class="st">Option_B ~ (n2 + 2*n3 - n1)</span>
-<span class="st">Option_C ? (n1 + n2 + 1)</span>
-<span class="st">Option_D ? (n1 + n2 - 2)</span>
-<span class="st">Option_E ? (n2 + n3 - n1)</span>
-<span class="st">&quot;</span>
-options_affix &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Option_A =</span> <span class="kw">c</span>(<span class="st">'$ '</span>, <span class="st">''</span>), <span class="dt">Option_B =</span> <span class="kw">c</span>(<span class="st">'$ '</span>, <span class="st">''</span>), <span class="dt">Option_C =</span> <span class="kw">c</span>(<span class="st">'$ '</span>, <span class="st">''</span>), <span class="dt">Option_D =</span> <span class="kw">c</span>(<span class="st">'$ '</span>, <span class="st">''</span>), <span class="dt">Option_E =</span> <span class="kw">c</span>(<span class="st">'$ '</span>, <span class="st">''</span>), <span class="dt">Difficulty =</span> <span class="st">'EASY'</span>)
-
-## itemgen() function can be used as:
-newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">N =</span> N, <span class="dt">C =</span> C, <span class="dt">options_affix =</span> options_affix)
-
-newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">21</span>, <span class="dv">24</span>)]
-<span class="co">#&gt;            [Q1]                                                                                                                 </span>
-<span class="co">#&gt; Stem       &quot;Sam has $ 4 and Max has $ 8 . If Max takes $ 2 from Sam later, then how much more amount than Sam does he have now?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;$ 12&quot;                                                                                                               </span>
-<span class="co">#&gt; Option_B   &quot;$ 8&quot;                                                                                                                </span>
-<span class="co">#&gt; Option_C   &quot;$ 13&quot;                                                                                                               </span>
-<span class="co">#&gt; Option_D   &quot;$ 10&quot;                                                                                                               </span>
-<span class="co">#&gt; Option_E   &quot;$ 6&quot;                                                                                                                </span>
-<span class="co">#&gt; Difficulty &quot;EASY&quot;                                                                                                               </span>
-<span class="co">#&gt; Answer_Key &quot;Option_B&quot;                                                                                                           </span>
-<span class="co">#&gt;            [Q4]                                                                                                                    </span>
-<span class="co">#&gt; Stem       &quot;Sean has $ 7 and Max has $ 8 . If Max takes $ 2 from Sean later, then how much more amount than Sean does he have now?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;$ 15&quot;                                                                                                                  </span>
-<span class="co">#&gt; Option_B   &quot;$ 5&quot;                                                                                                                   </span>
-<span class="co">#&gt; Option_C   &quot;$ 16&quot;                                                                                                                  </span>
-<span class="co">#&gt; Option_D   &quot;$ 13&quot;                                                                                                                  </span>
-<span class="co">#&gt; Option_E   &quot;$ 3&quot;                                                                                                                   </span>
-<span class="co">#&gt; Difficulty &quot;EASY&quot;                                                                                                                  </span>
-<span class="co">#&gt; Answer_Key &quot;Option_B&quot;                                                                                                              </span>
-<span class="co">#&gt;            [Q21]                                                                                                                      </span>
-<span class="co">#&gt; Stem       &quot;Sam has $ 4 and Mandy has $ 10 . If Mandy takes $ 3 from Sam later, then how much more amount than Sam does she have now?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;$ 14&quot;                                                                                                                     </span>
-<span class="co">#&gt; Option_B   &quot;$ 12&quot;                                                                                                                     </span>
-<span class="co">#&gt; Option_C   &quot;$ 15&quot;                                                                                                                     </span>
-<span class="co">#&gt; Option_D   &quot;$ 12&quot;                                                                                                                     </span>
-<span class="co">#&gt; Option_E   &quot;$ 9&quot;                                                                                                                      </span>
-<span class="co">#&gt; Difficulty &quot;EASY&quot;                                                                                                                     </span>
-<span class="co">#&gt; Answer_Key &quot;Option_B&quot;                                                                                                                 </span>
-<span class="co">#&gt;            [Q24]                                                                                                                         </span>
-<span class="co">#&gt; Stem       &quot;Sean has $ 7 and Mandy has $ 10 . If Mandy takes $ 3 from Sean later, then how much more amount than Sean does she have now?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;$ 17&quot;                                                                                                                        </span>
-<span class="co">#&gt; Option_B   &quot;$ 9&quot;                                                                                                                         </span>
-<span class="co">#&gt; Option_C   &quot;$ 18&quot;                                                                                                                        </span>
-<span class="co">#&gt; Option_D   &quot;$ 15&quot;                                                                                                                        </span>
-<span class="co">#&gt; Option_E   &quot;$ 6&quot;                                                                                                                         </span>
-<span class="co">#&gt; Difficulty &quot;EASY&quot;                                                                                                                        </span>
-<span class="co">#&gt; Answer_Key &quot;Option_B&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(QAIG)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">stem_text &lt;-<span class="st"> &quot;[C1] has $ [N1] and [C2] has $ [N2] . If [C2] takes $ [N3] from [C1] later, then how much more amount than [C1] does [C3] have now?&quot;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Sam&#39;</span>, <span class="st">&#39;Sean&#39;</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4">c2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Max&#39;</span>, <span class="st">&#39;Martha&#39;</span>, <span class="st">&#39;Mandy&#39;</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5">c3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;he&#39;</span>, <span class="st">&#39;she&#39;</span>, <span class="st">&#39;she&#39;</span>)</a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7">n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb4-8" title="8">n2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb4-9" title="9">n3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb4-10" title="10"></a>
+<a class="sourceLine" id="cb4-11" title="11">C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1, <span class="dt">c2 =</span> c2, <span class="dt">c3 =</span> c3)</a>
+<a class="sourceLine" id="cb4-12" title="12">N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1, <span class="dt">n2 =</span> n2, <span class="dt">n3 =</span> n3)</a>
+<a class="sourceLine" id="cb4-13" title="13"></a>
+<a class="sourceLine" id="cb4-14" title="14">formulae &lt;-<span class="st"> &quot;Option_A ? (n1 + n2)</span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="st">Option_B ~ (n2 + 2*n3 - n1)</span></a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="st">Option_C ? (n1 + n2 + 1)</span></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="st">Option_D ? (n1 + n2 - 2)</span></a>
+<a class="sourceLine" id="cb4-18" title="18"><span class="st">Option_E ? (n2 + n3 - n1)</span></a>
+<a class="sourceLine" id="cb4-19" title="19"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb4-20" title="20">options_affix &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Option_A =</span> <span class="kw">c</span>(<span class="st">&#39;$ &#39;</span>, <span class="st">&#39;&#39;</span>), <span class="dt">Option_B =</span> <span class="kw">c</span>(<span class="st">&#39;$ &#39;</span>, <span class="st">&#39;&#39;</span>), <span class="dt">Option_C =</span> <span class="kw">c</span>(<span class="st">&#39;$ &#39;</span>, <span class="st">&#39;&#39;</span>), <span class="dt">Option_D =</span> <span class="kw">c</span>(<span class="st">&#39;$ &#39;</span>, <span class="st">&#39;&#39;</span>), <span class="dt">Option_E =</span> <span class="kw">c</span>(<span class="st">&#39;$ &#39;</span>, <span class="st">&#39;&#39;</span>), <span class="dt">Difficulty =</span> <span class="st">&#39;EASY&#39;</span>)</a>
+<a class="sourceLine" id="cb4-21" title="21"></a>
+<a class="sourceLine" id="cb4-22" title="22"><span class="co">## itemgen() function can be used as:</span></a>
+<a class="sourceLine" id="cb4-23" title="23">newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">N =</span> N, <span class="dt">C =</span> C, <span class="dt">options_affix =</span> options_affix)</a>
+<a class="sourceLine" id="cb4-24" title="24"></a>
+<a class="sourceLine" id="cb4-25" title="25">newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">21</span>, <span class="dv">24</span>)]</a>
+<a class="sourceLine" id="cb4-26" title="26"><span class="co">#&gt;            [Q1]                                                                                                                 </span></a>
+<a class="sourceLine" id="cb4-27" title="27"><span class="co">#&gt; Stem       &quot;Sam has $ 4 and Max has $ 8 . If Max takes $ 2 from Sam later, then how much more amount than Sam does he have now?&quot;</span></a>
+<a class="sourceLine" id="cb4-28" title="28"><span class="co">#&gt; Option_A   &quot;$ 12&quot;                                                                                                               </span></a>
+<a class="sourceLine" id="cb4-29" title="29"><span class="co">#&gt; Option_B   &quot;$ 8&quot;                                                                                                                </span></a>
+<a class="sourceLine" id="cb4-30" title="30"><span class="co">#&gt; Option_C   &quot;$ 13&quot;                                                                                                               </span></a>
+<a class="sourceLine" id="cb4-31" title="31"><span class="co">#&gt; Option_D   &quot;$ 10&quot;                                                                                                               </span></a>
+<a class="sourceLine" id="cb4-32" title="32"><span class="co">#&gt; Option_E   &quot;$ 6&quot;                                                                                                                </span></a>
+<a class="sourceLine" id="cb4-33" title="33"><span class="co">#&gt; Difficulty &quot;EASY&quot;                                                                                                               </span></a>
+<a class="sourceLine" id="cb4-34" title="34"><span class="co">#&gt; Answer_Key &quot;Option_B&quot;                                                                                                           </span></a>
+<a class="sourceLine" id="cb4-35" title="35"><span class="co">#&gt;            [Q4]                                                                                                                    </span></a>
+<a class="sourceLine" id="cb4-36" title="36"><span class="co">#&gt; Stem       &quot;Sean has $ 7 and Max has $ 8 . If Max takes $ 2 from Sean later, then how much more amount than Sean does he have now?&quot;</span></a>
+<a class="sourceLine" id="cb4-37" title="37"><span class="co">#&gt; Option_A   &quot;$ 15&quot;                                                                                                                  </span></a>
+<a class="sourceLine" id="cb4-38" title="38"><span class="co">#&gt; Option_B   &quot;$ 5&quot;                                                                                                                   </span></a>
+<a class="sourceLine" id="cb4-39" title="39"><span class="co">#&gt; Option_C   &quot;$ 16&quot;                                                                                                                  </span></a>
+<a class="sourceLine" id="cb4-40" title="40"><span class="co">#&gt; Option_D   &quot;$ 13&quot;                                                                                                                  </span></a>
+<a class="sourceLine" id="cb4-41" title="41"><span class="co">#&gt; Option_E   &quot;$ 3&quot;                                                                                                                   </span></a>
+<a class="sourceLine" id="cb4-42" title="42"><span class="co">#&gt; Difficulty &quot;EASY&quot;                                                                                                                  </span></a>
+<a class="sourceLine" id="cb4-43" title="43"><span class="co">#&gt; Answer_Key &quot;Option_B&quot;                                                                                                              </span></a>
+<a class="sourceLine" id="cb4-44" title="44"><span class="co">#&gt;            [Q21]                                                                                                                      </span></a>
+<a class="sourceLine" id="cb4-45" title="45"><span class="co">#&gt; Stem       &quot;Sam has $ 4 and Mandy has $ 10 . If Mandy takes $ 3 from Sam later, then how much more amount than Sam does she have now?&quot;</span></a>
+<a class="sourceLine" id="cb4-46" title="46"><span class="co">#&gt; Option_A   &quot;$ 14&quot;                                                                                                                     </span></a>
+<a class="sourceLine" id="cb4-47" title="47"><span class="co">#&gt; Option_B   &quot;$ 12&quot;                                                                                                                     </span></a>
+<a class="sourceLine" id="cb4-48" title="48"><span class="co">#&gt; Option_C   &quot;$ 15&quot;                                                                                                                     </span></a>
+<a class="sourceLine" id="cb4-49" title="49"><span class="co">#&gt; Option_D   &quot;$ 12&quot;                                                                                                                     </span></a>
+<a class="sourceLine" id="cb4-50" title="50"><span class="co">#&gt; Option_E   &quot;$ 9&quot;                                                                                                                      </span></a>
+<a class="sourceLine" id="cb4-51" title="51"><span class="co">#&gt; Difficulty &quot;EASY&quot;                                                                                                                     </span></a>
+<a class="sourceLine" id="cb4-52" title="52"><span class="co">#&gt; Answer_Key &quot;Option_B&quot;                                                                                                                 </span></a>
+<a class="sourceLine" id="cb4-53" title="53"><span class="co">#&gt;            [Q24]                                                                                                                         </span></a>
+<a class="sourceLine" id="cb4-54" title="54"><span class="co">#&gt; Stem       &quot;Sean has $ 7 and Mandy has $ 10 . If Mandy takes $ 3 from Sean later, then how much more amount than Sean does she have now?&quot;</span></a>
+<a class="sourceLine" id="cb4-55" title="55"><span class="co">#&gt; Option_A   &quot;$ 17&quot;                                                                                                                        </span></a>
+<a class="sourceLine" id="cb4-56" title="56"><span class="co">#&gt; Option_B   &quot;$ 9&quot;                                                                                                                         </span></a>
+<a class="sourceLine" id="cb4-57" title="57"><span class="co">#&gt; Option_C   &quot;$ 18&quot;                                                                                                                        </span></a>
+<a class="sourceLine" id="cb4-58" title="58"><span class="co">#&gt; Option_D   &quot;$ 15&quot;                                                                                                                        </span></a>
+<a class="sourceLine" id="cb4-59" title="59"><span class="co">#&gt; Option_E   &quot;$ 6&quot;                                                                                                                         </span></a>
+<a class="sourceLine" id="cb4-60" title="60"><span class="co">#&gt; Difficulty &quot;EASY&quot;                                                                                                                        </span></a>
+<a class="sourceLine" id="cb4-61" title="61"><span class="co">#&gt; Answer_Key &quot;Option_B&quot;</span></a></code></pre></div>
 </div>
 <div id="user-can-include-a-response-choice-with-only-text-using-options_affix." class="section level3">
 <h3>User can include a response choice with only text using <code>options_affix</code>.</h3>
 </div>
 <div id="example-iii" class="section level3">
 <h3>Example III</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(QAIG)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stem_text &lt;-<span class="st"> &quot;[C1] bought a [C2] at $ [N1] . [C3] spent $ [N2] for repairing it and then sold it at $ [N3] . What was [C4] percentage of profit or loss?&quot;</span>
-
-c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'Samuel'</span>, <span class="st">'April'</span>)
-c2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'motorcycle'</span>, <span class="st">'moped'</span>)
-c3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'He'</span>, <span class="st">'She'</span>)
-c4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'his'</span>, <span class="st">'her'</span>)
-
-n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">925</span>, <span class="dv">862</span>, <span class="dv">784</span>)
-n2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">92</span>, <span class="dv">102</span>)
-n3 &lt;-<span class="st"> </span><span class="dv">1030</span>
-
-C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1, <span class="dt">c2 =</span> c2, <span class="dt">c3 =</span> c3, <span class="dt">c4 =</span> c4)
-N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1, <span class="dt">n2 =</span> n2, <span class="dt">n3 =</span> n3)
-
-formulae &lt;-<span class="st"> &quot;Option_A ? round((n2/n1)*100, 2)</span>
-<span class="st">Option_B ? round(((n3-n2-n1)/n3)*100, 1)</span>
-<span class="st">Option_C ? round(((n3-n2-n1+0)/n3)*100, 1)</span>
-<span class="st">Option_D ~ round((((n3-n2-n1)/(n1+n2))*100), 2)</span>
-<span class="st">&quot;</span>
-options_affix &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Option_A =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">'% loss'</span>), <span class="dt">Option_B =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">'% profit'</span>), <span class="dt">Option_C =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">'% loss'</span>), <span class="dt">Option_D =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">'% profit'</span>), <span class="dt">Option_E =</span> <span class="st">'No profit no loss'</span>)
-
-## itemgen() function can be used as:
-newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">C =</span> C, <span class="dt">N =</span> N, <span class="dt">options_affix =</span> options_affix)
-
-newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>)]
-<span class="co">#&gt;            [Q1]                                                                                                                                          </span>
-<span class="co">#&gt; Stem       &quot;Samuel bought a motorcycle at $ 925 . He spent $ 92 for repairing it and then sold it at $ 1030 . What was his percentage of profit or loss?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;9.95% loss&quot;                                                                                                                                  </span>
-<span class="co">#&gt; Option_B   &quot;1.3% profit&quot;                                                                                                                                 </span>
-<span class="co">#&gt; Option_C   &quot;1.3% loss&quot;                                                                                                                                   </span>
-<span class="co">#&gt; Option_D   &quot;1.28% profit&quot;                                                                                                                                </span>
-<span class="co">#&gt; Option_E   &quot;No profit no loss&quot;                                                                                                                           </span>
-<span class="co">#&gt; Answer_Key &quot;Option_D&quot;                                                                                                                                    </span>
-<span class="co">#&gt;            [Q2]                                                                                                                                     </span>
-<span class="co">#&gt; Stem       &quot;April bought a moped at $ 862 . She spent $ 92 for repairing it and then sold it at $ 1030 . What was her percentage of profit or loss?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;10.67% loss&quot;                                                                                                                            </span>
-<span class="co">#&gt; Option_B   &quot;7.4% profit&quot;                                                                                                                            </span>
-<span class="co">#&gt; Option_C   &quot;7.4% loss&quot;                                                                                                                              </span>
-<span class="co">#&gt; Option_D   &quot;7.97% profit&quot;                                                                                                                           </span>
-<span class="co">#&gt; Option_E   &quot;No profit no loss&quot;                                                                                                                      </span>
-<span class="co">#&gt; Answer_Key &quot;Option_D&quot;                                                                                                                               </span>
-<span class="co">#&gt;            [Q3]                                                                                                                                          </span>
-<span class="co">#&gt; Stem       &quot;Samuel bought a motorcycle at $ 784 . He spent $ 92 for repairing it and then sold it at $ 1030 . What was his percentage of profit or loss?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;11.73% loss&quot;                                                                                                                                 </span>
-<span class="co">#&gt; Option_B   &quot;15% profit&quot;                                                                                                                                  </span>
-<span class="co">#&gt; Option_C   &quot;15% loss&quot;                                                                                                                                    </span>
-<span class="co">#&gt; Option_D   &quot;17.58% profit&quot;                                                                                                                               </span>
-<span class="co">#&gt; Option_E   &quot;No profit no loss&quot;                                                                                                                           </span>
-<span class="co">#&gt; Answer_Key &quot;Option_D&quot;                                                                                                                                    </span>
-<span class="co">#&gt;            [Q6]                                                                                                                                      </span>
-<span class="co">#&gt; Stem       &quot;April bought a moped at $ 784 . She spent $ 102 for repairing it and then sold it at $ 1030 . What was her percentage of profit or loss?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;13.01% loss&quot;                                                                                                                             </span>
-<span class="co">#&gt; Option_B   &quot;14% profit&quot;                                                                                                                              </span>
-<span class="co">#&gt; Option_C   &quot;14% loss&quot;                                                                                                                                </span>
-<span class="co">#&gt; Option_D   &quot;16.25% profit&quot;                                                                                                                           </span>
-<span class="co">#&gt; Option_E   &quot;No profit no loss&quot;                                                                                                                       </span>
-<span class="co">#&gt; Answer_Key &quot;Option_D&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(QAIG)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">stem_text &lt;-<span class="st"> &quot;[C1] bought a [C2] at $ [N1] . [C3] spent $ [N2] for repairing it and then sold it at $ [N3] . What was [C4] percentage of profit or loss?&quot;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Samuel&#39;</span>, <span class="st">&#39;April&#39;</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4">c2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;motorcycle&#39;</span>, <span class="st">&#39;moped&#39;</span>)</a>
+<a class="sourceLine" id="cb6-5" title="5">c3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;He&#39;</span>, <span class="st">&#39;She&#39;</span>)</a>
+<a class="sourceLine" id="cb6-6" title="6">c4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;his&#39;</span>, <span class="st">&#39;her&#39;</span>)</a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8">n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">925</span>, <span class="dv">862</span>, <span class="dv">784</span>)</a>
+<a class="sourceLine" id="cb6-9" title="9">n2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">92</span>, <span class="dv">102</span>)</a>
+<a class="sourceLine" id="cb6-10" title="10">n3 &lt;-<span class="st"> </span><span class="dv">1030</span></a>
+<a class="sourceLine" id="cb6-11" title="11"></a>
+<a class="sourceLine" id="cb6-12" title="12">C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1, <span class="dt">c2 =</span> c2, <span class="dt">c3 =</span> c3, <span class="dt">c4 =</span> c4)</a>
+<a class="sourceLine" id="cb6-13" title="13">N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1, <span class="dt">n2 =</span> n2, <span class="dt">n3 =</span> n3)</a>
+<a class="sourceLine" id="cb6-14" title="14"></a>
+<a class="sourceLine" id="cb6-15" title="15">formulae &lt;-<span class="st"> &quot;Option_A ? round((n2/n1)*100, 2)</span></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="st">Option_B ? round(((n3-n2-n1)/n3)*100, 1)</span></a>
+<a class="sourceLine" id="cb6-17" title="17"><span class="st">Option_C ? round(((n3-n2-n1+0)/n3)*100, 1)</span></a>
+<a class="sourceLine" id="cb6-18" title="18"><span class="st">Option_D ~ round((((n3-n2-n1)/(n1+n2))*100), 2)</span></a>
+<a class="sourceLine" id="cb6-19" title="19"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb6-20" title="20">options_affix &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Option_A =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39;% loss&#39;</span>), <span class="dt">Option_B =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39;% profit&#39;</span>), <span class="dt">Option_C =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39;% loss&#39;</span>), <span class="dt">Option_D =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39;% profit&#39;</span>), <span class="dt">Option_E =</span> <span class="st">&#39;No profit no loss&#39;</span>)</a>
+<a class="sourceLine" id="cb6-21" title="21"></a>
+<a class="sourceLine" id="cb6-22" title="22"><span class="co">## itemgen() function can be used as:</span></a>
+<a class="sourceLine" id="cb6-23" title="23">newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">C =</span> C, <span class="dt">N =</span> N, <span class="dt">options_affix =</span> options_affix)</a>
+<a class="sourceLine" id="cb6-24" title="24"></a>
+<a class="sourceLine" id="cb6-25" title="25">newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>)]</a>
+<a class="sourceLine" id="cb6-26" title="26"><span class="co">#&gt;            [Q1]                                                                                                                                          </span></a>
+<a class="sourceLine" id="cb6-27" title="27"><span class="co">#&gt; Stem       &quot;Samuel bought a motorcycle at $ 925 . He spent $ 92 for repairing it and then sold it at $ 1030 . What was his percentage of profit or loss?&quot;</span></a>
+<a class="sourceLine" id="cb6-28" title="28"><span class="co">#&gt; Option_A   &quot;9.95% loss&quot;                                                                                                                                  </span></a>
+<a class="sourceLine" id="cb6-29" title="29"><span class="co">#&gt; Option_B   &quot;1.3% profit&quot;                                                                                                                                 </span></a>
+<a class="sourceLine" id="cb6-30" title="30"><span class="co">#&gt; Option_C   &quot;1.3% loss&quot;                                                                                                                                   </span></a>
+<a class="sourceLine" id="cb6-31" title="31"><span class="co">#&gt; Option_D   &quot;1.28% profit&quot;                                                                                                                                </span></a>
+<a class="sourceLine" id="cb6-32" title="32"><span class="co">#&gt; Option_E   &quot;No profit no loss&quot;                                                                                                                           </span></a>
+<a class="sourceLine" id="cb6-33" title="33"><span class="co">#&gt; Answer_Key &quot;Option_D&quot;                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb6-34" title="34"><span class="co">#&gt;            [Q2]                                                                                                                                     </span></a>
+<a class="sourceLine" id="cb6-35" title="35"><span class="co">#&gt; Stem       &quot;April bought a moped at $ 862 . She spent $ 92 for repairing it and then sold it at $ 1030 . What was her percentage of profit or loss?&quot;</span></a>
+<a class="sourceLine" id="cb6-36" title="36"><span class="co">#&gt; Option_A   &quot;10.67% loss&quot;                                                                                                                            </span></a>
+<a class="sourceLine" id="cb6-37" title="37"><span class="co">#&gt; Option_B   &quot;7.4% profit&quot;                                                                                                                            </span></a>
+<a class="sourceLine" id="cb6-38" title="38"><span class="co">#&gt; Option_C   &quot;7.4% loss&quot;                                                                                                                              </span></a>
+<a class="sourceLine" id="cb6-39" title="39"><span class="co">#&gt; Option_D   &quot;7.97% profit&quot;                                                                                                                           </span></a>
+<a class="sourceLine" id="cb6-40" title="40"><span class="co">#&gt; Option_E   &quot;No profit no loss&quot;                                                                                                                      </span></a>
+<a class="sourceLine" id="cb6-41" title="41"><span class="co">#&gt; Answer_Key &quot;Option_D&quot;                                                                                                                               </span></a>
+<a class="sourceLine" id="cb6-42" title="42"><span class="co">#&gt;            [Q3]                                                                                                                                          </span></a>
+<a class="sourceLine" id="cb6-43" title="43"><span class="co">#&gt; Stem       &quot;Samuel bought a motorcycle at $ 784 . He spent $ 92 for repairing it and then sold it at $ 1030 . What was his percentage of profit or loss?&quot;</span></a>
+<a class="sourceLine" id="cb6-44" title="44"><span class="co">#&gt; Option_A   &quot;11.73% loss&quot;                                                                                                                                 </span></a>
+<a class="sourceLine" id="cb6-45" title="45"><span class="co">#&gt; Option_B   &quot;15% profit&quot;                                                                                                                                  </span></a>
+<a class="sourceLine" id="cb6-46" title="46"><span class="co">#&gt; Option_C   &quot;15% loss&quot;                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb6-47" title="47"><span class="co">#&gt; Option_D   &quot;17.58% profit&quot;                                                                                                                               </span></a>
+<a class="sourceLine" id="cb6-48" title="48"><span class="co">#&gt; Option_E   &quot;No profit no loss&quot;                                                                                                                           </span></a>
+<a class="sourceLine" id="cb6-49" title="49"><span class="co">#&gt; Answer_Key &quot;Option_D&quot;                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb6-50" title="50"><span class="co">#&gt;            [Q6]                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb6-51" title="51"><span class="co">#&gt; Stem       &quot;April bought a moped at $ 784 . She spent $ 102 for repairing it and then sold it at $ 1030 . What was her percentage of profit or loss?&quot;</span></a>
+<a class="sourceLine" id="cb6-52" title="52"><span class="co">#&gt; Option_A   &quot;13.01% loss&quot;                                                                                                                             </span></a>
+<a class="sourceLine" id="cb6-53" title="53"><span class="co">#&gt; Option_B   &quot;14% profit&quot;                                                                                                                              </span></a>
+<a class="sourceLine" id="cb6-54" title="54"><span class="co">#&gt; Option_C   &quot;14% loss&quot;                                                                                                                                </span></a>
+<a class="sourceLine" id="cb6-55" title="55"><span class="co">#&gt; Option_D   &quot;16.25% profit&quot;                                                                                                                           </span></a>
+<a class="sourceLine" id="cb6-56" title="56"><span class="co">#&gt; Option_E   &quot;No profit no loss&quot;                                                                                                                       </span></a>
+<a class="sourceLine" id="cb6-57" title="57"><span class="co">#&gt; Answer_Key &quot;Option_D&quot;</span></a></code></pre></div>
 </div>
 <div id="using-ans_key-argument." class="section level3">
 <h3>3: Using <code>ans_key</code> argument.</h3>
@@ -315,66 +526,66 @@ newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv"
 </div>
 <div id="example-iv" class="section level3">
 <h3>Example IV</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(QAIG)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stem_text &lt;-<span class="st"> &quot;A [C1] was delayed somewhere for [N1] minutes but made up for the delay on a section of [N2] km travelling at a speed of [N3] km per hour higher than that which accorded the schedule. What was the speed of the [C1] that accorded the schedule?&quot;</span>
-
-c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'car'</span>, <span class="st">'bus'</span>, <span class="st">'truck'</span>, <span class="st">'train'</span>)
-
-n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">24</span>)
-n2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">110</span>)
-n3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">18</span>)
-
-C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1)
-N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1, <span class="dt">n2 =</span> n2, <span class="dt">n3 =</span> n3)
-
-formulae &lt;-<span class="st"> &quot;p &lt;- 1</span>
-<span class="st">Option_A ? round((-n3 + sqrt(n3^2 - 4*p*(-60*n2*n3/n1)))/2,2)</span>
-<span class="st">Option_B ? round((-n3 - sqrt(n3^2 - 4*p*(-60*n2*n3/n1)))*(-1)/2-20,2)</span>
-<span class="st">Option_C ? round((-n3 - sqrt(n3^2 - 4*p*(-60*n2*n3/n1)))*(-1)/2,2)</span>
-<span class="st">Option_D ? round((-n3 + sqrt(n3^2 - 4*p*(-60*n2*n3/n1)))/2+30,2)</span>
-<span class="st">&quot;</span>
-options_affix &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Option_A =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' km/hr'</span>), <span class="dt">Option_B =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' km/hr'</span>), <span class="dt">Option_C =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' km/hr'</span>), <span class="dt">Option_D =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' km/hr'</span>), <span class="dt">Option_E =</span> <span class="st">'Cannot be determined'</span>, <span class="dt">Difficulty =</span> <span class="st">'HARD'</span>)
-
-## itemgen() function can be used as:
-newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">N =</span> N, <span class="dt">C =</span> C, <span class="dt">ans_key =</span> <span class="st">'Option_A'</span>, <span class="dt">options_affix =</span> options_affix)
-
-newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">79</span>, <span class="dv">80</span>)]
-<span class="co">#&gt;            [Q1]                                                                                                                                                                                                                                        </span>
-<span class="co">#&gt; Stem       &quot;A car was delayed somewhere for 16 minutes but made up for the delay on a section of 80 km travelling at a speed of 10 km per hour higher than that which accorded the schedule. What was the speed of the car that accorded the schedule?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;50 km/hr&quot;                                                                                                                                                                                                                                  </span>
-<span class="co">#&gt; Option_B   &quot;40 km/hr&quot;                                                                                                                                                                                                                                  </span>
-<span class="co">#&gt; Option_C   &quot;60 km/hr&quot;                                                                                                                                                                                                                                  </span>
-<span class="co">#&gt; Option_D   &quot;80 km/hr&quot;                                                                                                                                                                                                                                  </span>
-<span class="co">#&gt; Option_E   &quot;Cannot be determined&quot;                                                                                                                                                                                                                      </span>
-<span class="co">#&gt; Difficulty &quot;HARD&quot;                                                                                                                                                                                                                                      </span>
-<span class="co">#&gt; Answer_Key &quot;Option_A&quot;                                                                                                                                                                                                                                  </span>
-<span class="co">#&gt;            [Q2]                                                                                                                                                                                                                                        </span>
-<span class="co">#&gt; Stem       &quot;A bus was delayed somewhere for 18 minutes but made up for the delay on a section of 80 km travelling at a speed of 10 km per hour higher than that which accorded the schedule. What was the speed of the bus that accorded the schedule?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;46.88 km/hr&quot;                                                                                                                                                                                                                               </span>
-<span class="co">#&gt; Option_B   &quot;36.88 km/hr&quot;                                                                                                                                                                                                                               </span>
-<span class="co">#&gt; Option_C   &quot;56.88 km/hr&quot;                                                                                                                                                                                                                               </span>
-<span class="co">#&gt; Option_D   &quot;76.88 km/hr&quot;                                                                                                                                                                                                                               </span>
-<span class="co">#&gt; Option_E   &quot;Cannot be determined&quot;                                                                                                                                                                                                                      </span>
-<span class="co">#&gt; Difficulty &quot;HARD&quot;                                                                                                                                                                                                                                      </span>
-<span class="co">#&gt; Answer_Key &quot;Option_A&quot;                                                                                                                                                                                                                                  </span>
-<span class="co">#&gt;            [Q79]                                                                                                                                                                                                                                            </span>
-<span class="co">#&gt; Stem       &quot;A truck was delayed somewhere for 22 minutes but made up for the delay on a section of 110 km travelling at a speed of 18 km per hour higher than that which accorded the schedule. What was the speed of the truck that accorded the schedule?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;65.03 km/hr&quot;                                                                                                                                                                                                                                    </span>
-<span class="co">#&gt; Option_B   &quot;63.03 km/hr&quot;                                                                                                                                                                                                                                    </span>
-<span class="co">#&gt; Option_C   &quot;83.03 km/hr&quot;                                                                                                                                                                                                                                    </span>
-<span class="co">#&gt; Option_D   &quot;95.03 km/hr&quot;                                                                                                                                                                                                                                    </span>
-<span class="co">#&gt; Option_E   &quot;Cannot be determined&quot;                                                                                                                                                                                                                           </span>
-<span class="co">#&gt; Difficulty &quot;HARD&quot;                                                                                                                                                                                                                                           </span>
-<span class="co">#&gt; Answer_Key &quot;Option_A&quot;                                                                                                                                                                                                                                       </span>
-<span class="co">#&gt;            [Q80]                                                                                                                                                                                                                                            </span>
-<span class="co">#&gt; Stem       &quot;A train was delayed somewhere for 24 minutes but made up for the delay on a section of 110 km travelling at a speed of 18 km per hour higher than that which accorded the schedule. What was the speed of the train that accorded the schedule?&quot;</span>
-<span class="co">#&gt; Option_A   &quot;61.93 km/hr&quot;                                                                                                                                                                                                                                    </span>
-<span class="co">#&gt; Option_B   &quot;59.93 km/hr&quot;                                                                                                                                                                                                                                    </span>
-<span class="co">#&gt; Option_C   &quot;79.93 km/hr&quot;                                                                                                                                                                                                                                    </span>
-<span class="co">#&gt; Option_D   &quot;91.93 km/hr&quot;                                                                                                                                                                                                                                    </span>
-<span class="co">#&gt; Option_E   &quot;Cannot be determined&quot;                                                                                                                                                                                                                           </span>
-<span class="co">#&gt; Difficulty &quot;HARD&quot;                                                                                                                                                                                                                                           </span>
-<span class="co">#&gt; Answer_Key &quot;Option_A&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">library</span>(QAIG)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">stem_text &lt;-<span class="st"> &quot;A [C1] was delayed somewhere for [N1] minutes but made up for the delay on a section of [N2] km travelling at a speed of [N3] km per hour higher than that which accorded the schedule. What was the speed of the [C1] that accorded the schedule?&quot;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3">c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;car&#39;</span>, <span class="st">&#39;bus&#39;</span>, <span class="st">&#39;truck&#39;</span>, <span class="st">&#39;train&#39;</span>)</a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5">n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">24</span>)</a>
+<a class="sourceLine" id="cb8-6" title="6">n2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">110</span>)</a>
+<a class="sourceLine" id="cb8-7" title="7">n3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">18</span>)</a>
+<a class="sourceLine" id="cb8-8" title="8"></a>
+<a class="sourceLine" id="cb8-9" title="9">C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1)</a>
+<a class="sourceLine" id="cb8-10" title="10">N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1, <span class="dt">n2 =</span> n2, <span class="dt">n3 =</span> n3)</a>
+<a class="sourceLine" id="cb8-11" title="11"></a>
+<a class="sourceLine" id="cb8-12" title="12">formulae &lt;-<span class="st"> &quot;p &lt;- 1</span></a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="st">Option_A ? round((-n3 + sqrt(n3^2 - 4*p*(-60*n2*n3/n1)))/2,2)</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="st">Option_B ? round((-n3 - sqrt(n3^2 - 4*p*(-60*n2*n3/n1)))*(-1)/2-20,2)</span></a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="st">Option_C ? round((-n3 - sqrt(n3^2 - 4*p*(-60*n2*n3/n1)))*(-1)/2,2)</span></a>
+<a class="sourceLine" id="cb8-16" title="16"><span class="st">Option_D ? round((-n3 + sqrt(n3^2 - 4*p*(-60*n2*n3/n1)))/2+30,2)</span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb8-18" title="18">options_affix &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Option_A =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; km/hr&#39;</span>), <span class="dt">Option_B =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; km/hr&#39;</span>), <span class="dt">Option_C =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; km/hr&#39;</span>), <span class="dt">Option_D =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; km/hr&#39;</span>), <span class="dt">Option_E =</span> <span class="st">&#39;Cannot be determined&#39;</span>, <span class="dt">Difficulty =</span> <span class="st">&#39;HARD&#39;</span>)</a>
+<a class="sourceLine" id="cb8-19" title="19"></a>
+<a class="sourceLine" id="cb8-20" title="20"><span class="co">## itemgen() function can be used as:</span></a>
+<a class="sourceLine" id="cb8-21" title="21">newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">N =</span> N, <span class="dt">C =</span> C, <span class="dt">ans_key =</span> <span class="st">&#39;Option_A&#39;</span>, <span class="dt">options_affix =</span> options_affix)</a>
+<a class="sourceLine" id="cb8-22" title="22"></a>
+<a class="sourceLine" id="cb8-23" title="23">newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">79</span>, <span class="dv">80</span>)]</a>
+<a class="sourceLine" id="cb8-24" title="24"><span class="co">#&gt;            [Q1]                                                                                                                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb8-25" title="25"><span class="co">#&gt; Stem       &quot;A car was delayed somewhere for 16 minutes but made up for the delay on a section of 80 km travelling at a speed of 10 km per hour higher than that which accorded the schedule. What was the speed of the car that accorded the schedule?&quot;</span></a>
+<a class="sourceLine" id="cb8-26" title="26"><span class="co">#&gt; Option_A   &quot;50 km/hr&quot;                                                                                                                                                                                                                                  </span></a>
+<a class="sourceLine" id="cb8-27" title="27"><span class="co">#&gt; Option_B   &quot;40 km/hr&quot;                                                                                                                                                                                                                                  </span></a>
+<a class="sourceLine" id="cb8-28" title="28"><span class="co">#&gt; Option_C   &quot;60 km/hr&quot;                                                                                                                                                                                                                                  </span></a>
+<a class="sourceLine" id="cb8-29" title="29"><span class="co">#&gt; Option_D   &quot;80 km/hr&quot;                                                                                                                                                                                                                                  </span></a>
+<a class="sourceLine" id="cb8-30" title="30"><span class="co">#&gt; Option_E   &quot;Cannot be determined&quot;                                                                                                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb8-31" title="31"><span class="co">#&gt; Difficulty &quot;HARD&quot;                                                                                                                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb8-32" title="32"><span class="co">#&gt; Answer_Key &quot;Option_A&quot;                                                                                                                                                                                                                                  </span></a>
+<a class="sourceLine" id="cb8-33" title="33"><span class="co">#&gt;            [Q2]                                                                                                                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb8-34" title="34"><span class="co">#&gt; Stem       &quot;A bus was delayed somewhere for 18 minutes but made up for the delay on a section of 80 km travelling at a speed of 10 km per hour higher than that which accorded the schedule. What was the speed of the bus that accorded the schedule?&quot;</span></a>
+<a class="sourceLine" id="cb8-35" title="35"><span class="co">#&gt; Option_A   &quot;46.88 km/hr&quot;                                                                                                                                                                                                                               </span></a>
+<a class="sourceLine" id="cb8-36" title="36"><span class="co">#&gt; Option_B   &quot;36.88 km/hr&quot;                                                                                                                                                                                                                               </span></a>
+<a class="sourceLine" id="cb8-37" title="37"><span class="co">#&gt; Option_C   &quot;56.88 km/hr&quot;                                                                                                                                                                                                                               </span></a>
+<a class="sourceLine" id="cb8-38" title="38"><span class="co">#&gt; Option_D   &quot;76.88 km/hr&quot;                                                                                                                                                                                                                               </span></a>
+<a class="sourceLine" id="cb8-39" title="39"><span class="co">#&gt; Option_E   &quot;Cannot be determined&quot;                                                                                                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb8-40" title="40"><span class="co">#&gt; Difficulty &quot;HARD&quot;                                                                                                                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb8-41" title="41"><span class="co">#&gt; Answer_Key &quot;Option_A&quot;                                                                                                                                                                                                                                  </span></a>
+<a class="sourceLine" id="cb8-42" title="42"><span class="co">#&gt;            [Q79]                                                                                                                                                                                                                                            </span></a>
+<a class="sourceLine" id="cb8-43" title="43"><span class="co">#&gt; Stem       &quot;A truck was delayed somewhere for 22 minutes but made up for the delay on a section of 110 km travelling at a speed of 18 km per hour higher than that which accorded the schedule. What was the speed of the truck that accorded the schedule?&quot;</span></a>
+<a class="sourceLine" id="cb8-44" title="44"><span class="co">#&gt; Option_A   &quot;65.03 km/hr&quot;                                                                                                                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb8-45" title="45"><span class="co">#&gt; Option_B   &quot;63.03 km/hr&quot;                                                                                                                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb8-46" title="46"><span class="co">#&gt; Option_C   &quot;83.03 km/hr&quot;                                                                                                                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb8-47" title="47"><span class="co">#&gt; Option_D   &quot;95.03 km/hr&quot;                                                                                                                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb8-48" title="48"><span class="co">#&gt; Option_E   &quot;Cannot be determined&quot;                                                                                                                                                                                                                           </span></a>
+<a class="sourceLine" id="cb8-49" title="49"><span class="co">#&gt; Difficulty &quot;HARD&quot;                                                                                                                                                                                                                                           </span></a>
+<a class="sourceLine" id="cb8-50" title="50"><span class="co">#&gt; Answer_Key &quot;Option_A&quot;                                                                                                                                                                                                                                       </span></a>
+<a class="sourceLine" id="cb8-51" title="51"><span class="co">#&gt;            [Q80]                                                                                                                                                                                                                                            </span></a>
+<a class="sourceLine" id="cb8-52" title="52"><span class="co">#&gt; Stem       &quot;A train was delayed somewhere for 24 minutes but made up for the delay on a section of 110 km travelling at a speed of 18 km per hour higher than that which accorded the schedule. What was the speed of the train that accorded the schedule?&quot;</span></a>
+<a class="sourceLine" id="cb8-53" title="53"><span class="co">#&gt; Option_A   &quot;61.93 km/hr&quot;                                                                                                                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb8-54" title="54"><span class="co">#&gt; Option_B   &quot;59.93 km/hr&quot;                                                                                                                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb8-55" title="55"><span class="co">#&gt; Option_C   &quot;79.93 km/hr&quot;                                                                                                                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb8-56" title="56"><span class="co">#&gt; Option_D   &quot;91.93 km/hr&quot;                                                                                                                                                                                                                                    </span></a>
+<a class="sourceLine" id="cb8-57" title="57"><span class="co">#&gt; Option_E   &quot;Cannot be determined&quot;                                                                                                                                                                                                                           </span></a>
+<a class="sourceLine" id="cb8-58" title="58"><span class="co">#&gt; Difficulty &quot;HARD&quot;                                                                                                                                                                                                                                           </span></a>
+<a class="sourceLine" id="cb8-59" title="59"><span class="co">#&gt; Answer_Key &quot;Option_A&quot;</span></a></code></pre></div>
 </div>
 <div id="using-supporting-values-and-functions-within-formulae." class="section level3">
 <h3>4: Using supporting values and function(s) within <code>formulae</code>.</h3>
@@ -383,79 +594,79 @@ newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv"
 </div>
 <div id="example-v" class="section level3">
 <h3>Example V</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(QAIG)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stem_text &lt;-<span class="st"> &quot;Sum of present ages of [C1] and [C2] [C3] is [N1] . After [N2] years [C2] [C3] will be thrice as old as [C1] . The present age of [C2] [C3] is&quot;</span>
-
-n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">74</span>, <span class="dv">80</span>, <span class="dv">72</span>, <span class="dv">68</span>)
-n2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">10</span>)
-
-c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'Sophia'</span>, <span class="st">'Viktor'</span>, <span class="st">'Julia'</span>, <span class="st">'Andy'</span>)
-c2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'her'</span>, <span class="st">'his'</span>)
-c3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">'father'</span>, <span class="st">'mother'</span>)
-
-N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1, <span class="dt">n2 =</span> n2)
-C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1, <span class="dt">c2 =</span> c2, <span class="dt">c3 =</span> c3)
-
-formulae &lt;-<span class="st"> &quot;a &lt;- 5</span>
-<span class="st">sol &lt;- function(x, y){</span>
-<span class="st">  A &lt;- matrix(c(1, 1, 1, -3), nrow=2)</span>
-<span class="st">  B &lt;- matrix(c(x, 2*y), nrow=2)</span>
-<span class="st">  return((as.matrix(solve(A)%*%B)))</span>
-<span class="st">}</span>
-
-<span class="st">Option_A ? round(sol(n1, n2)[1,]+a, 2)</span>
-<span class="st">Option_B ? round(sol(n1, n2)[2,]+a, 2)</span>
-<span class="st">Option_C ~ round(sol(n1, n2)[1,], 2)</span>
-<span class="st">Option_D ? round(sol(n1, n2)[2,], 2)</span>
-<span class="st">Option_E ? round(sol(n1, n2)[1,]-a, 2)</span>
-<span class="st">&quot;</span>
-options_affix &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Option_A =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' years'</span>), <span class="dt">Option_B =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' years'</span>), <span class="dt">Option_C =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' years'</span>), <span class="dt">Option_D =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' years'</span>), <span class="dt">Option_E =</span> <span class="kw">c</span>(<span class="st">''</span>, <span class="st">' years'</span>), <span class="dt">Difficulty =</span> <span class="st">'MEDIUM'</span>)
-
-## itemgen() function can be used as:
-newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">N =</span> N, <span class="dt">C =</span> C, <span class="dt">options_affix =</span> options_affix)
-newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">8</span>)]
-<span class="co">#&gt;            [Q1]                                                                                                                                              </span>
-<span class="co">#&gt; Stem       &quot;Sum of present ages of Sophia and her father is 74 . After 8 years her father will be thrice as old as Sophia . The present age of her father is&quot;</span>
-<span class="co">#&gt; Option_A   &quot;64.5 years&quot;                                                                                                                                      </span>
-<span class="co">#&gt; Option_B   &quot;19.5 years&quot;                                                                                                                                      </span>
-<span class="co">#&gt; Option_C   &quot;59.5 years&quot;                                                                                                                                      </span>
-<span class="co">#&gt; Option_D   &quot;14.5 years&quot;                                                                                                                                      </span>
-<span class="co">#&gt; Option_E   &quot;54.5 years&quot;                                                                                                                                      </span>
-<span class="co">#&gt; Difficulty &quot;MEDIUM&quot;                                                                                                                                          </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                                                                                                                        </span>
-<span class="co">#&gt;            [Q2]                                                                                                                                              </span>
-<span class="co">#&gt; Stem       &quot;Sum of present ages of Viktor and his mother is 80 . After 8 years his mother will be thrice as old as Viktor . The present age of his mother is&quot;</span>
-<span class="co">#&gt; Option_A   &quot;69 years&quot;                                                                                                                                        </span>
-<span class="co">#&gt; Option_B   &quot;21 years&quot;                                                                                                                                        </span>
-<span class="co">#&gt; Option_C   &quot;64 years&quot;                                                                                                                                        </span>
-<span class="co">#&gt; Option_D   &quot;16 years&quot;                                                                                                                                        </span>
-<span class="co">#&gt; Option_E   &quot;59 years&quot;                                                                                                                                        </span>
-<span class="co">#&gt; Difficulty &quot;MEDIUM&quot;                                                                                                                                          </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                                                                                                                        </span>
-<span class="co">#&gt;            [Q7]                                                                                                                                             </span>
-<span class="co">#&gt; Stem       &quot;Sum of present ages of Julia and her father is 72 . After 10 years her father will be thrice as old as Julia . The present age of her father is&quot;</span>
-<span class="co">#&gt; Option_A   &quot;64 years&quot;                                                                                                                                       </span>
-<span class="co">#&gt; Option_B   &quot;18 years&quot;                                                                                                                                       </span>
-<span class="co">#&gt; Option_C   &quot;59 years&quot;                                                                                                                                       </span>
-<span class="co">#&gt; Option_D   &quot;13 years&quot;                                                                                                                                       </span>
-<span class="co">#&gt; Option_E   &quot;54 years&quot;                                                                                                                                       </span>
-<span class="co">#&gt; Difficulty &quot;MEDIUM&quot;                                                                                                                                         </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                                                                                                                       </span>
-<span class="co">#&gt;            [Q8]                                                                                                                                           </span>
-<span class="co">#&gt; Stem       &quot;Sum of present ages of Andy and his mother is 68 . After 10 years his mother will be thrice as old as Andy . The present age of his mother is&quot;</span>
-<span class="co">#&gt; Option_A   &quot;61 years&quot;                                                                                                                                     </span>
-<span class="co">#&gt; Option_B   &quot;17 years&quot;                                                                                                                                     </span>
-<span class="co">#&gt; Option_C   &quot;56 years&quot;                                                                                                                                     </span>
-<span class="co">#&gt; Option_D   &quot;12 years&quot;                                                                                                                                     </span>
-<span class="co">#&gt; Option_E   &quot;51 years&quot;                                                                                                                                     </span>
-<span class="co">#&gt; Difficulty &quot;MEDIUM&quot;                                                                                                                                       </span>
-<span class="co">#&gt; Answer_Key &quot;Option_C&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">library</span>(QAIG)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">stem_text &lt;-<span class="st"> &quot;Sum of present ages of [C1] and [C2] [C3] is [N1] . After [N2] years [C2] [C3] will be thrice as old as [C1] . The present age of [C2] [C3] is&quot;</span></a>
+<a class="sourceLine" id="cb10-2" title="2"></a>
+<a class="sourceLine" id="cb10-3" title="3">n1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">74</span>, <span class="dv">80</span>, <span class="dv">72</span>, <span class="dv">68</span>)</a>
+<a class="sourceLine" id="cb10-4" title="4">n2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb10-5" title="5"></a>
+<a class="sourceLine" id="cb10-6" title="6">c1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Sophia&#39;</span>, <span class="st">&#39;Viktor&#39;</span>, <span class="st">&#39;Julia&#39;</span>, <span class="st">&#39;Andy&#39;</span>)</a>
+<a class="sourceLine" id="cb10-7" title="7">c2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;her&#39;</span>, <span class="st">&#39;his&#39;</span>)</a>
+<a class="sourceLine" id="cb10-8" title="8">c3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;father&#39;</span>, <span class="st">&#39;mother&#39;</span>)</a>
+<a class="sourceLine" id="cb10-9" title="9"></a>
+<a class="sourceLine" id="cb10-10" title="10">N &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">n1 =</span> n1, <span class="dt">n2 =</span> n2)</a>
+<a class="sourceLine" id="cb10-11" title="11">C &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1 =</span> c1, <span class="dt">c2 =</span> c2, <span class="dt">c3 =</span> c3)</a>
+<a class="sourceLine" id="cb10-12" title="12"></a>
+<a class="sourceLine" id="cb10-13" title="13">formulae &lt;-<span class="st"> &quot;a &lt;- 5</span></a>
+<a class="sourceLine" id="cb10-14" title="14"><span class="st">sol &lt;- function(x, y){</span></a>
+<a class="sourceLine" id="cb10-15" title="15"><span class="st">  A &lt;- matrix(c(1, 1, 1, -3), nrow=2)</span></a>
+<a class="sourceLine" id="cb10-16" title="16"><span class="st">  B &lt;- matrix(c(x, 2*y), nrow=2)</span></a>
+<a class="sourceLine" id="cb10-17" title="17"><span class="st">  return((as.matrix(solve(A)%*%B)))</span></a>
+<a class="sourceLine" id="cb10-18" title="18"><span class="st">}</span></a>
+<a class="sourceLine" id="cb10-19" title="19"></a>
+<a class="sourceLine" id="cb10-20" title="20"><span class="st">Option_A ? round(sol(n1, n2)[1,]+a, 2)</span></a>
+<a class="sourceLine" id="cb10-21" title="21"><span class="st">Option_B ? round(sol(n1, n2)[2,]+a, 2)</span></a>
+<a class="sourceLine" id="cb10-22" title="22"><span class="st">Option_C ~ round(sol(n1, n2)[1,], 2)</span></a>
+<a class="sourceLine" id="cb10-23" title="23"><span class="st">Option_D ? round(sol(n1, n2)[2,], 2)</span></a>
+<a class="sourceLine" id="cb10-24" title="24"><span class="st">Option_E ? round(sol(n1, n2)[1,]-a, 2)</span></a>
+<a class="sourceLine" id="cb10-25" title="25"><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb10-26" title="26">options_affix &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Option_A =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; years&#39;</span>), <span class="dt">Option_B =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; years&#39;</span>), <span class="dt">Option_C =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; years&#39;</span>), <span class="dt">Option_D =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; years&#39;</span>), <span class="dt">Option_E =</span> <span class="kw">c</span>(<span class="st">&#39;&#39;</span>, <span class="st">&#39; years&#39;</span>), <span class="dt">Difficulty =</span> <span class="st">&#39;MEDIUM&#39;</span>)</a>
+<a class="sourceLine" id="cb10-27" title="27"></a>
+<a class="sourceLine" id="cb10-28" title="28"><span class="co">## itemgen() function can be used as:</span></a>
+<a class="sourceLine" id="cb10-29" title="29">newitems &lt;-<span class="st"> </span>QAIG<span class="op">::</span><span class="kw">itemgen</span>(<span class="dt">stem_text =</span> stem_text, <span class="dt">formulae =</span> formulae, <span class="dt">N =</span> N, <span class="dt">C =</span> C, <span class="dt">options_affix =</span> options_affix)</a>
+<a class="sourceLine" id="cb10-30" title="30">newitems[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">8</span>)]</a>
+<a class="sourceLine" id="cb10-31" title="31"><span class="co">#&gt;            [Q1]                                                                                                                                              </span></a>
+<a class="sourceLine" id="cb10-32" title="32"><span class="co">#&gt; Stem       &quot;Sum of present ages of Sophia and her father is 74 . After 8 years her father will be thrice as old as Sophia . The present age of her father is&quot;</span></a>
+<a class="sourceLine" id="cb10-33" title="33"><span class="co">#&gt; Option_A   &quot;64.5 years&quot;                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb10-34" title="34"><span class="co">#&gt; Option_B   &quot;19.5 years&quot;                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb10-35" title="35"><span class="co">#&gt; Option_C   &quot;59.5 years&quot;                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb10-36" title="36"><span class="co">#&gt; Option_D   &quot;14.5 years&quot;                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb10-37" title="37"><span class="co">#&gt; Option_E   &quot;54.5 years&quot;                                                                                                                                      </span></a>
+<a class="sourceLine" id="cb10-38" title="38"><span class="co">#&gt; Difficulty &quot;MEDIUM&quot;                                                                                                                                          </span></a>
+<a class="sourceLine" id="cb10-39" title="39"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb10-40" title="40"><span class="co">#&gt;            [Q2]                                                                                                                                              </span></a>
+<a class="sourceLine" id="cb10-41" title="41"><span class="co">#&gt; Stem       &quot;Sum of present ages of Viktor and his mother is 80 . After 8 years his mother will be thrice as old as Viktor . The present age of his mother is&quot;</span></a>
+<a class="sourceLine" id="cb10-42" title="42"><span class="co">#&gt; Option_A   &quot;69 years&quot;                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb10-43" title="43"><span class="co">#&gt; Option_B   &quot;21 years&quot;                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb10-44" title="44"><span class="co">#&gt; Option_C   &quot;64 years&quot;                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb10-45" title="45"><span class="co">#&gt; Option_D   &quot;16 years&quot;                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb10-46" title="46"><span class="co">#&gt; Option_E   &quot;59 years&quot;                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb10-47" title="47"><span class="co">#&gt; Difficulty &quot;MEDIUM&quot;                                                                                                                                          </span></a>
+<a class="sourceLine" id="cb10-48" title="48"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                                                                                                                        </span></a>
+<a class="sourceLine" id="cb10-49" title="49"><span class="co">#&gt;            [Q7]                                                                                                                                             </span></a>
+<a class="sourceLine" id="cb10-50" title="50"><span class="co">#&gt; Stem       &quot;Sum of present ages of Julia and her father is 72 . After 10 years her father will be thrice as old as Julia . The present age of her father is&quot;</span></a>
+<a class="sourceLine" id="cb10-51" title="51"><span class="co">#&gt; Option_A   &quot;64 years&quot;                                                                                                                                       </span></a>
+<a class="sourceLine" id="cb10-52" title="52"><span class="co">#&gt; Option_B   &quot;18 years&quot;                                                                                                                                       </span></a>
+<a class="sourceLine" id="cb10-53" title="53"><span class="co">#&gt; Option_C   &quot;59 years&quot;                                                                                                                                       </span></a>
+<a class="sourceLine" id="cb10-54" title="54"><span class="co">#&gt; Option_D   &quot;13 years&quot;                                                                                                                                       </span></a>
+<a class="sourceLine" id="cb10-55" title="55"><span class="co">#&gt; Option_E   &quot;54 years&quot;                                                                                                                                       </span></a>
+<a class="sourceLine" id="cb10-56" title="56"><span class="co">#&gt; Difficulty &quot;MEDIUM&quot;                                                                                                                                         </span></a>
+<a class="sourceLine" id="cb10-57" title="57"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;                                                                                                                                       </span></a>
+<a class="sourceLine" id="cb10-58" title="58"><span class="co">#&gt;            [Q8]                                                                                                                                           </span></a>
+<a class="sourceLine" id="cb10-59" title="59"><span class="co">#&gt; Stem       &quot;Sum of present ages of Andy and his mother is 68 . After 10 years his mother will be thrice as old as Andy . The present age of his mother is&quot;</span></a>
+<a class="sourceLine" id="cb10-60" title="60"><span class="co">#&gt; Option_A   &quot;61 years&quot;                                                                                                                                     </span></a>
+<a class="sourceLine" id="cb10-61" title="61"><span class="co">#&gt; Option_B   &quot;17 years&quot;                                                                                                                                     </span></a>
+<a class="sourceLine" id="cb10-62" title="62"><span class="co">#&gt; Option_C   &quot;56 years&quot;                                                                                                                                     </span></a>
+<a class="sourceLine" id="cb10-63" title="63"><span class="co">#&gt; Option_D   &quot;12 years&quot;                                                                                                                                     </span></a>
+<a class="sourceLine" id="cb10-64" title="64"><span class="co">#&gt; Option_E   &quot;51 years&quot;                                                                                                                                     </span></a>
+<a class="sourceLine" id="cb10-65" title="65"><span class="co">#&gt; Difficulty &quot;MEDIUM&quot;                                                                                                                                       </span></a>
+<a class="sourceLine" id="cb10-66" title="66"><span class="co">#&gt; Answer_Key &quot;Option_C&quot;</span></a></code></pre></div>
 </div>
 <div id="using-save.csv-argument" class="section level3">
 <h3>5: Using <code>save.csv</code> argument</h3>
 <p>Generated items can be saved in a <code>.csv</code> file by using the <code>save.csv</code> argument. If a name of the file is passed to this argument, all the generated items will be saved automatically in <code>.csv</code> format in the working directory.</p>
 <p>As example:</p>
-<p><code>itemgen(stem_text, formulae, N, C = C, options_affix = options_affix, save.csv = 'New Items')</code></p>
+<p><code>itemgen(stem_text, formulae, N, C = C, options_affix = options_affix, save.csv = &#39;New Items&#39;)</code></p>
 <p><a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/jedm.12166">Reference: AIG for Developing Mathematics Achievement Items</a></p>
 </div>
 </div>

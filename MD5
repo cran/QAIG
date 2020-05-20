@@ -1,10 +1,10 @@
-766caad5da0f31f169468acb8a315cec *DESCRIPTION
+96b4ece05202b552728229d10571006c *DESCRIPTION
 aa916b79742a43fd2c9994b2ba4699e6 *NAMESPACE
-6eb2b1ae1dcbc75f9d6694c0fbc97251 *R/itemgen_function.R
+dce60f5bbee6beb984e0bcae18e4fce1 *R/itemgen_function.R
 a359b294859eb69fbe5c1f6aa527d9f8 *README.md
-03f00c5efb20b634ebb623447d83cfc7 *build/vignette.rds
+f66400dd036ef134517367c3a9bb05c9 *build/vignette.rds
 0a90366c3a6e888b2660ccdfc7608ca1 *inst/doc/qaig-introduction.R
-ebf31acbb90c73154a3111692dbae0f9 *inst/doc/qaig-introduction.Rmd
-206965bc019f7e498cb7898f94ccd477 *inst/doc/qaig-introduction.html
-cc73374eee71daf74ae9b5454082bff4 *man/itemgen.Rd
-ebf31acbb90c73154a3111692dbae0f9 *vignettes/qaig-introduction.Rmd
+9ff3ce9d2ae03edc9fc7f46b27c4df50 *inst/doc/qaig-introduction.Rmd
+7431c689a3ce3f6c46dc52eb8f062fad *inst/doc/qaig-introduction.html
+e7f2bcd29274aa9f74d80bf3ab82e596 *man/itemgen.Rd
+9ff3ce9d2ae03edc9fc7f46b27c4df50 *vignettes/qaig-introduction.Rmd
